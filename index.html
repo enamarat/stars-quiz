@@ -7,17 +7,39 @@
   </head>
   <body>
     <main>
-      <form>
-        <section>
+      <div id="introduction">
+        <h2> Welcome to star quiz! </h2>
+        <p> Shall we begin? </p>
+        <button id="start"> Start </button>
+      </div>
+
+      <form id="quiz-form">
+        <section class="question">
           <label> What is the name of the brightest star in the sky? </label>
           <br>
           <input type="radio" value="altair" name="star"> Altair<br>
           <input type="radio" value="sirius" name="star"> Sirius<br>
           <input type="radio" value="vega" name="star"> Vega <br>
           <input type="radio" value="polaris" name="star"> Polaris <br>
-         <section>
-           <button id="submit"> Submit </button>
+        </section>
+
+           <section class="question">
+             <label> What is the name of the closest star to our Solar system? </label>
+             <br>
+             <input type="radio" value="alpha-centauri-a" name="star"> Alpha Centauri A<br>
+             <input type="radio" value="alpha-centauri-b" name="star"> Alpha Centauri B<br>
+             <input type="radio" value="proxima-centauri" name="star"> Proxima Centauri<br>
+             <input type="radio" value="barnards-star" name="star"> Barnard's star<br>
+           </section>
+
+            <div>
+              <p id="message"> </p>
+            </div>
+            <div id="buttons">
+              <button id="submit"> Submit </button>
+          </div>
         </form>
+
     </main>
     <script src="./script.js"></script>
   </body>
