@@ -1,4 +1,9 @@
+#wrap {
+  display: flex;
+}
+
 #quiz-form,
-.question {
+.question,
+#score {
   display: none;
 }
