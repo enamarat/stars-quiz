@@ -53,7 +53,6 @@ const displayQuestion = (numberOfQuestion) => {
 
     const label = document.createElement('LABEL');
     label.setAttribute('for', answers[numberOfQuestion][i].toLowerCase());
-  //  label.setAttribute('class', 'answer');
     label.textContent = answers[numberOfQuestion][i];
 
     label.appendChild(input);
@@ -97,6 +96,15 @@ const markAsChosen = (event) => {
   }
 }
 
+/** Restart the quiz **/
+const restartQuiz = () => {
+  score = 0;
+  questionsCount = 0;
+  document.querySelector('#score').style.display = "none";
+  document.querySelector('#introduction').style.display = "block";
+  document.querySelector('#score').removeChild(document.querySelector('#restart'));
+}
+
 /*** change question ***/
 const changeQuestion = (event) => {
   event.preventDefault();
@@ -109,6 +117,13 @@ const changeQuestion = (event) => {
     displayQuestion(questionsCount);
   } else if (questionsCount === 4) {
     document.querySelector('#quiz-form').style.display = "none";
+
+    const restartButton = document.createElement('BUTTON');
+    restartButton.textContent = 'Restart';
+    restartButton.setAttribute('id', 'restart');
+    document.querySelector('#score').appendChild(restartButton);
+    document.querySelector('#restart').addEventListener('click', restartQuiz);
+
     if (score === 5) {
        document.querySelector('#score-message').innerHTML = `Your final score is ${score}. <br> You've scored 5 out of 5! You are the master of the Galaxy!`;
     } else if (score === 4) {
