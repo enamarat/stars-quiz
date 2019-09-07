@@ -21,17 +21,25 @@ const correctAnswers = ["Sirius","Proxima-Centauri","Polaris","Orion","Andromeda
 const displayQuestion = (numberOfQuestion) => {
   // create a section
   const section = document.createElement('SECTION');
-  section.setAttribute('class', 'question');
+  section.setAttribute('class', 'page');
   section.setAttribute('id', numberOfQuestion);
+
+  // create a question
+  const divQuestion = document.createElement('DIV');
+  divQuestion.setAttribute('class', 'question');
 
   const label = document.createElement('LABEL');
   label.textContent = questions[numberOfQuestion];
   const br = document.createElement('BR');
-
   label.appendChild(br);
-  section.appendChild(label);
 
-  // append created section to the form
+  divQuestion.appendChild(label);
+  section.appendChild(divQuestion);
+
+  // create options for answers
+  const divAnswers = document.createElement('DIV');
+  divAnswers.setAttribute('class', 'answers');
+
   for (let i = 0; i < answers[numberOfQuestion].length; i++) {
     const input = document.createElement('INPUT');
     input.setAttribute('type', 'radio');
@@ -45,13 +53,23 @@ const displayQuestion = (numberOfQuestion) => {
 
     const label = document.createElement('LABEL');
     label.setAttribute('for', answers[numberOfQuestion][i].toLowerCase());
+  //  label.setAttribute('class', 'answer');
     label.textContent = answers[numberOfQuestion][i];
 
     label.appendChild(input);
     label.appendChild(br);
-    section.appendChild(label);
+    const divOption = document.createElement('DIV');
+    divOption.setAttribute('class', 'answer');
+    divOption.appendChild(label);
+    divAnswers.appendChild(divOption);
   }
+
+  // append created section to the form
+  section.appendChild(divAnswers);
   document.querySelector('#questionAndAnswers').appendChild(section);
+
+  // add event listener to the 'answers' div of the created section
+  document.querySelector('.answers').addEventListener('click', markAsChosen);
 }
 
 
@@ -62,6 +80,23 @@ const startTheQuiz = () => {
   displayQuestion(0);
 }
 
+
+/*** mark an option as chosen ***/
+const markAsChosen = (event) => {
+  const options = document.querySelectorAll('.chosen-answer');
+
+  for (let i = 0; i < options.length; i++) {
+    options[i].classList.remove('chosen-answer');
+  }
+
+  if (event.target.tagName === "DIV" && event.target.className === "answer") {
+    event.target.setAttribute('class', 'answer chosen-answer');
+    event.target.firstChild.childNodes[1].checked = true;
+    console.log(event.target.firstChild.childNodes[1]);
+  } else if (event.target.tagName === "INPUT") {
+    event.target.parentNode.parentNode.setAttribute('class', 'answer chosen-answer');
+  }
+}
 
 /*** change question ***/
 const changeQuestion = (event) => {
@@ -98,7 +133,6 @@ const changeQuestion = (event) => {
   document.querySelector('#submit').disabled = false;
 }
 
-
 /*** check answer ***/
 const checkAnswer = (event) => {
   event.preventDefault();
@@ -107,7 +141,7 @@ const checkAnswer = (event) => {
 
    for (let i = 0; i < options.length; i++) {
      if (options[i].checked === true) {
-       const questionId = options[i].parentNode.parentNode.id;
+       const questionId = options[i].parentNode.parentNode.parentNode.parentNode.id;
        if (options[i].value.toLowerCase() === correctAnswers[questionId].toLowerCase()) {
          document.querySelector('#message').textContent = "Correct!";
          score++;

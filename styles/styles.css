@@ -1,3 +1,4 @@
+/*** universal styles ***/
 * {
   box-sizing: border-box;
 }
@@ -6,13 +7,14 @@ body {
   font-size: 1.2rem;
 }
 
+/*** introduction screen **/
 #introduction {
   margin: auto;
   width: 100%;
   min-height: 100vh;
   text-align: center;
   padding-top: 35vh;
-  border: 12px solid blue;
+  background: linear-gradient(-45deg, #AA1FDE, #000, #080A59);
 }
 
 #planet {
@@ -21,7 +23,7 @@ body {
   height: 200px;
   border-radius: 50%;
   top: 10%;
-  left: 15%;
+  left: 5%;
   box-shadow: inset -7px -5px 5px 5px black;
   background: repeating-linear-gradient(
      45deg,
@@ -32,17 +34,7 @@ body {
    );
 }
 
-h2 {
-  font-weight: bold;
-  font-size: 2rem;
-  color: blue;
-}
-
-p {
-  margin-top: 1rem;
-  margin-bottom: 0.5rem;
-}
-
+/*** questions ***/
 #wrap {
   display: flex;
 }
@@ -52,8 +44,58 @@ p {
   display: none;
 }
 
+section {
+  text-align: center;
+}
+
+.question {
+  padding: 1rem 1rem;
+  margin-bottom: 1rem;
+  background-color: blue;
+  color: #FFF;
+  font-weight: bold;
+}
+
+.answers {
+  margin: 0 auto;
+}
+
+.answer {
+  margin-top: 0.5rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-radius: 10%;
+  border: 2px solid blue;
+}
+
+.answer:hover {
+  border: 2px solid gold;
+}
+
+.chosen-answer {
+  background-color: #080A59;
+  color: gold;
+  font-weight: bold;
+  border: 2px solid gold;
+}
+
+input {
+  visibility: hidden;
+}
+
+h2 {
+  font-weight: bold;
+  font-size: 2rem;
+  color: gold;
+}
+
+p {
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+
 /* buttons */
-#start {
+button {
   background-color: blue;
   color: #FFF;
   border: 2px solid #000;
@@ -61,12 +103,12 @@ p {
   padding: 5px 25px;
 }
 
-#start:hover {
+button:hover {
   background-color: #02069B;
   color: gold;
 }
 
-#start:active {
+button:active {
   background-color: #080A59;
   color: gold;
 }
