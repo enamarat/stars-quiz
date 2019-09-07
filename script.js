@@ -102,6 +102,10 @@ const restartQuiz = () => {
   questionsCount = 0;
   document.querySelector('#score').style.display = "none";
   document.querySelector('#introduction').style.display = "block";
+
+  document.querySelector('#summary').style.display = "none";
+  document.querySelector('#score').style.paddingTop = "0px";
+
   document.querySelector('#score').removeChild(document.querySelector('#restart'));
 }
 
@@ -118,11 +122,20 @@ const changeQuestion = (event) => {
   } else if (questionsCount === 4) {
     document.querySelector('#quiz-form').style.display = "none";
 
+    // add a restart button
     const restartButton = document.createElement('BUTTON');
     restartButton.textContent = 'Restart';
     restartButton.setAttribute('id', 'restart');
     document.querySelector('#score').appendChild(restartButton);
     document.querySelector('#restart').addEventListener('click', restartQuiz);
+
+    // reveal the summary screen
+    document.querySelector('#summary').style.display = "block";
+    document.querySelector('#score').style.paddingTop = "35vh";
+
+    // document.querySelector('#summary').style.position = "absolute";
+    // document.querySelector('#summary').style.zIndex = 0;
+    //   document.querySelector('#score').style.zIndex = 2;
 
     if (score === 5) {
        document.querySelector('#score-message').innerHTML = `Your final score is ${score}. <br> You've scored 5 out of 5! You are the master of the Galaxy!`;
@@ -170,9 +183,11 @@ const checkAnswer = (event) => {
    if (count === 0) {
      document.querySelector('#message').textContent = "You haven't chosen the answer!";
    } else if (count > 0) {
+
      document.querySelector('#score').style.display = "block";
      document.querySelector('#score-message').textContent = `Your current score is ${score}`;
      document.querySelector('#submit').disabled = true;
+
      const nextButton = document.createElement('BUTTON');
      nextButton.textContent = "Next";
      nextButton.setAttribute('id', 'next');
