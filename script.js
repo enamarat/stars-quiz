@@ -92,7 +92,6 @@ const markAsChosen = (event) => {
   if (event.target.tagName === "DIV" && event.target.className === "answer") {
     event.target.setAttribute('class', 'answer chosen-answer');
     event.target.firstChild.childNodes[1].checked = true;
-    console.log(event.target.firstChild.childNodes[1]);
   } else if (event.target.tagName === "INPUT") {
     event.target.parentNode.parentNode.setAttribute('class', 'answer chosen-answer');
   }
