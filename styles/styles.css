@@ -7,6 +7,10 @@ body {
   font-size: 1.2rem;
 }
 
+#buttons, #messages, #score {
+  text-align: center;
+}
+
 /*** introduction screen **/
 #introduction {
   margin: auto;
@@ -98,11 +102,6 @@ input {
   z-index: 2;
 }
 
-/* buttons div */
-#buttons, #messages, #score {
-  text-align: center;
-}
-
 /* typography */
 h2 {
   font-weight: bold;
@@ -113,6 +112,10 @@ h2 {
 p {
   margin-top: 1rem;
   margin-bottom: 0.5rem;
+}
+
+#introduction p {
+  color: #FFF;
 }
 
 /* buttons */

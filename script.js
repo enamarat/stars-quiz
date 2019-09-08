@@ -1,5 +1,6 @@
 let score = 0;
 let questionsCount = 0;
+let buttonDisabled = false;
 const questions = [
   "What is the name of the brightest star in the sky?",
   "What is the name of the closest star to our Solar system?",
@@ -82,18 +83,20 @@ const startTheQuiz = () => {
 
 /*** mark an option as chosen ***/
 const markAsChosen = (event) => {
-  const options = document.querySelectorAll('.chosen-answer');
+    if (buttonDisabled === false) {
+      const options = document.querySelectorAll('.chosen-answer');
 
-  for (let i = 0; i < options.length; i++) {
-    options[i].classList.remove('chosen-answer');
-  }
+      for (let i = 0; i < options.length; i++) {
+        options[i].classList.remove('chosen-answer');
+      }
 
-  if (event.target.tagName === "DIV" && event.target.className === "answer") {
-    event.target.setAttribute('class', 'answer chosen-answer');
-    event.target.firstChild.childNodes[1].checked = true;
-  } else if (event.target.tagName === "INPUT") {
-    event.target.parentNode.parentNode.setAttribute('class', 'answer chosen-answer');
-  }
+      if (event.target.tagName === "DIV" && event.target.className === "answer") {
+        event.target.setAttribute('class', 'answer chosen-answer');
+        event.target.firstChild.childNodes[1].checked = true;
+      } else if (event.target.tagName === "INPUT") {
+        event.target.parentNode.parentNode.setAttribute('class', 'answer chosen-answer');
+      }
+    }
 }
 
 /** Restart the quiz **/
@@ -133,10 +136,6 @@ const changeQuestion = (event) => {
     document.querySelector('#summary').style.display = "block";
     document.querySelector('#score').style.paddingTop = "35vh";
 
-    // document.querySelector('#summary').style.position = "absolute";
-    // document.querySelector('#summary').style.zIndex = 0;
-    //   document.querySelector('#score').style.zIndex = 2;
-
     if (score === 5) {
        document.querySelector('#score-message').innerHTML = `Your final score is ${score}. <br> You've scored 5 out of 5! You are the master of the Galaxy!`;
     } else if (score === 4) {
@@ -152,12 +151,14 @@ const changeQuestion = (event) => {
     }
   }
 
+  // activate 'Submit' button
+  document.querySelector('#submit').disabled = false;
+  document.querySelector('#submit').style.backgroundColor = "blue";
+  buttonDisabled = false;
+
   // hide 'Next' button and message
   document.querySelector('#message').textContent = "";
   document.querySelector('#buttons').removeChild(document.querySelector('#next'));
-
-  // activate 'Submit' button
-  document.querySelector('#submit').disabled = false;
 }
 
 /*** check answer ***/
@@ -186,7 +187,11 @@ const checkAnswer = (event) => {
 
      document.querySelector('#score').style.display = "block";
      document.querySelector('#score-message').textContent = `Your current score is ${score}`;
+
+     // deactivate "Submit" button
      document.querySelector('#submit').disabled = true;
+     buttonDisabled = true;
+     document.querySelector('#submit').style.backgroundColor = "#25313B";
 
      const nextButton = document.createElement('BUTTON');
      nextButton.textContent = "Next";
