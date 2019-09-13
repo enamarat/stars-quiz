@@ -151,9 +151,8 @@ const changeQuestion = (event) => {
     }
   }
 
-  // activate 'Submit' button
-  document.querySelector('#submit').disabled = false;
-  document.querySelector('#submit').style.backgroundColor = "blue";
+  // show 'Submit' button
+  document.querySelector('#submit').style.display = "inline-block";
   buttonDisabled = false;
 
   // hide 'Next' button and message
@@ -188,10 +187,9 @@ const checkAnswer = (event) => {
      document.querySelector('#score').style.display = "block";
      document.querySelector('#score-message').textContent = `Your current score is ${score}`;
 
-     // deactivate "Submit" button
-     document.querySelector('#submit').disabled = true;
+     // hide "Submit" button
+     document.querySelector('#submit').style.display = "none";
      buttonDisabled = true;
-     document.querySelector('#submit').style.backgroundColor = "#25313B";
 
      const nextButton = document.createElement('BUTTON');
      nextButton.textContent = "Next";
