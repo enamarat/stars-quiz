@@ -12,7 +12,7 @@ const answers = [
   ["Altair","Sirius","Vega","Polaris"],
   ["Alpha Centauri A","Alpha Centauri B","Proxima Centauri","Barnard's star"],
   ["Deneb","Polaris","Sirius","Aldebaran"],
-  ["Perseus arm","Orion","Norma","Sagittarius"],
+  ["Perseus arm","Orion","Norma","Sagittarius arm"],
   ["Andromeda galaxy","Circinus galaxy","Pinwheel galaxy","Sombrero galaxy"]
 ];
 const correctAnswers = ["Sirius","Proxima-Centauri","Polaris","Orion","Andromeda-galaxy"];
@@ -142,7 +142,7 @@ const changeQuestion = (event) => {
     } else if (score === 4) {
        document.querySelector('#score-message').innerHTML = `Your final score is ${score}. <br> You know the space quite well! From now on you will be named an experienced space traveller!`;
     } else if (score === 3) {
-       document.querySelector('#score-message').innerHTML = `Your final score is ${score}. <br> Not bad! But you can be better!`;
+       document.querySelector('#score-message').innerHTML = `Your final score is ${score}. <br> Not bad! But you do better!`;
     } else if (score === 2) {
        document.querySelector('#score-message').innerHTML = `Your final score is ${score}. <br> You know something so you have the foundation to erect your tower of knowledge on! Try again!`;
     } else if (score === 1) {
