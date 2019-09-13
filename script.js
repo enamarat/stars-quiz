@@ -58,6 +58,7 @@ const displayQuestion = (numberOfQuestion) => {
 
     label.appendChild(input);
     label.appendChild(br);
+
     const divOption = document.createElement('DIV');
     divOption.setAttribute('class', 'answer');
     divOption.appendChild(label);
