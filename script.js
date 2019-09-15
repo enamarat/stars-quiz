@@ -198,13 +198,13 @@ const changeQuestion = (event) => {
       if (score === 5) {
          document.querySelector('#score-message').innerHTML = `Ваш итоговый результат: ${score} очков. <br> Вы набрали 5 из 5! Вы владычествуете над Галактикой!`;
       } else if (score === 4) {
-         document.querySelector('#score-message').innerHTML = `Ваш итоговый результат: ${score} очков. <br> Вы знаете космос довольно хорошо! Отныне Вы будете именоваться опытным космическим путешественником!`;
+         document.querySelector('#score-message').innerHTML = `Ваш итоговый результат: ${score} очка. <br> Вы знаете космос довольно хорошо! Отныне Вы будете именоваться опытным космическим путешественником!`;
       } else if (score === 3) {
-         document.querySelector('#score-message').innerHTML = `Ваш итоговый результат: ${score} очков. <br> Неплохо! Но Вы можете лучше!`;
+         document.querySelector('#score-message').innerHTML = `Ваш итоговый результат: ${score} очка. <br> Неплохо! Но Вы можете лучше!`;
       } else if (score === 2) {
-         document.querySelector('#score-message').innerHTML = `Ваш итоговый результат: ${score} очков. <br> Вы кое-что знаете, так что у Вас есть основание, на котором можно воздвигнуть башню Вашего знания! Попытайтесь снова!`;
+         document.querySelector('#score-message').innerHTML = `Ваш итоговый результат: ${score} очка. <br> Вы кое-что знаете, так что у Вас есть основание, на котором можно воздвигнуть башню Вашего знания! Попытайтесь снова!`;
       } else if (score === 1) {
-         document.querySelector('#score-message').innerHTML = `Ваш итоговый результат: ${score} очков. <br> По крайней мере на один вопрос Вы ответили верно! С практикой приходит уверенность. Попытайтесь снова!`;
+         document.querySelector('#score-message').innerHTML = `Ваш итоговый результат: ${score} очко. <br> По крайней мере на один вопрос Вы ответили верно! С практикой приходит уверенность. Попытайтесь снова!`;
       } else if (score === 0) {
          document.querySelector('#score-message').innerHTML = `Ваш итоговый результат: ${score} очков. <br> Не расстраивайтесь! Даже мудрейшие ничего не знали на определённом этапе! Попытайтесь снова!`;
       }
