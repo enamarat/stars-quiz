@@ -99,7 +99,7 @@ section {
 }
 
 input {
-  visibility: hidden;
+  display: none;
 }
 
 /* summary */
