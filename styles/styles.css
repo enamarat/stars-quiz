@@ -158,4 +158,10 @@ button:active {
     height: 150px;
     top: 5%;
     left: 5%;
+  }
+
+  button {
+    padding: 10px 25px;
+  }
+
 }
