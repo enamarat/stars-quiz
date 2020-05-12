@@ -149,6 +149,7 @@ const restartQuiz = () => {
   document.querySelector('#score').style.paddingTop = "0px";
 
   document.querySelector('#score').removeChild(document.querySelector('#restart'));
+  document.querySelector('#final-score-message').textContent = "";
 }
 
 /*** change question ***/
@@ -179,34 +180,35 @@ const changeQuestion = (event) => {
     // reveal the summary screen
     document.querySelector('#summary').style.display = "block";
     document.querySelector('#score').style.paddingTop = "35vh";
+    document.querySelector('#score-message').style.display = "none";
 
   if (language === "english") {
       if (score === 5) {
-         document.querySelector('#score-message').innerHTML = `Your final score is ${score}. <br> You've scored 5 out of 5! You are the master of the Galaxy!`;
+         document.querySelector('#final-score-message').innerHTML = `Your final score is ${score}. <br> You've scored 5 out of 5! You are the master of the Galaxy!`;
       } else if (score === 4) {
-         document.querySelector('#score-message').innerHTML = `Your final score is ${score}. <br> You know the space quite well! From now on you will be named an experienced space traveller!`;
+         document.querySelector('#final-score-message').innerHTML = `Your final score is ${score}. <br> You know the space quite well! From now on you will be named an experienced space traveller!`;
       } else if (score === 3) {
-         document.querySelector('#score-message').innerHTML = `Your final score is ${score}. <br> Not bad! But you can do better!`;
+         document.querySelector('#final-score-message').innerHTML = `Your final score is ${score}. <br> Not bad! But you can do better!`;
       } else if (score === 2) {
-         document.querySelector('#score-message').innerHTML = `Your final score is ${score}. <br> You know something so you have the foundation to erect your tower of knowledge on! Try again!`;
+         document.querySelector('#final-score-message').innerHTML = `Your final score is ${score}. <br> You know something so you have the foundation to erect your tower of knowledge on! Try again!`;
       } else if (score === 1) {
-         document.querySelector('#score-message').innerHTML = `Your final score is ${score}. <br> At least you've got one right! With practice comes confidence. Try again!`;
+         document.querySelector('#final-score-message').innerHTML = `Your final score is ${score}. <br> At least you've got one right! With practice comes confidence. Try again!`;
       } else if (score === 0) {
-         document.querySelector('#score-message').innerHTML = `Your final score is ${score}. <br> Don't be upset! Even the wisest knew nothing at some point! Try again!`;
+         document.querySelector('#final-score-message').innerHTML = `Your final score is ${score}. <br> Don't be upset! Even the wisest knew nothing at some point! Try again!`;
       }
     } else if (language === "russian") {
       if (score === 5) {
-         document.querySelector('#score-message').innerHTML = `Ваш итоговый результат: ${score} очков. <br> Вы набрали 5 из 5! Вы владычествуете над Галактикой!`;
+         document.querySelector('#final-score-message').innerHTML = `Ваш итоговый результат: ${score} очков. <br> Вы набрали 5 из 5! Вы владычествуете над Галактикой!`;
       } else if (score === 4) {
-         document.querySelector('#score-message').innerHTML = `Ваш итоговый результат: ${score} очка. <br> Вы знаете космос довольно хорошо! Отныне Вы будете именоваться опытным космическим путешественником!`;
+         document.querySelector('#final-score-message').innerHTML = `Ваш итоговый результат: ${score} очка. <br> Вы знаете космос довольно хорошо! Отныне Вы будете именоваться опытным космическим путешественником!`;
       } else if (score === 3) {
-         document.querySelector('#score-message').innerHTML = `Ваш итоговый результат: ${score} очка. <br> Неплохо! Но Вы можете лучше!`;
+         document.querySelector('#final-score-message').innerHTML = `Ваш итоговый результат: ${score} очка. <br> Неплохо! Но Вы можете лучше!`;
       } else if (score === 2) {
-         document.querySelector('#score-message').innerHTML = `Ваш итоговый результат: ${score} очка. <br> Вы кое-что знаете, так что у Вас есть основание, на котором можно воздвигнуть башню Вашего знания! Попытайтесь снова!`;
+         document.querySelector('#final-score-message').innerHTML = `Ваш итоговый результат: ${score} очка. <br> Вы кое-что знаете, так что у Вас есть основание, на котором можно воздвигнуть башню Вашего знания! Попытайтесь снова!`;
       } else if (score === 1) {
-         document.querySelector('#score-message').innerHTML = `Ваш итоговый результат: ${score} очко. <br> По крайней мере на один вопрос Вы ответили верно! С практикой приходит уверенность. Попытайтесь снова!`;
+         document.querySelector('#final-score-message').innerHTML = `Ваш итоговый результат: ${score} очко. <br> По крайней мере на один вопрос Вы ответили верно! С практикой приходит уверенность. Попытайтесь снова!`;
       } else if (score === 0) {
-         document.querySelector('#score-message').innerHTML = `Ваш итоговый результат: ${score} очков. <br> Не расстраивайтесь! Даже мудрейшие ничего не знали на определённом этапе! Попытайтесь снова!`;
+         document.querySelector('#final-score-message').innerHTML = `Ваш итоговый результат: ${score} очков. <br> Не расстраивайтесь! Даже мудрейшие ничего не знали на определённом этапе! Попытайтесь снова!`;
       }
     }
   }
