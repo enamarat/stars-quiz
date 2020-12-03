@@ -87,15 +87,15 @@ section {
   border: 2px solid blue;
 }
 
-.answer:hover {
-  border: 2px solid gold;
+.answer:hover{
+    background-color: #188CC6;
+    color: #FFF;
 }
 
 .chosen-answer {
   background-color: #080A59;
   color: gold;
   font-weight: bold;
-  border: 2px solid gold;
 }
 
 input {
